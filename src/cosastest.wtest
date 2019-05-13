@@ -1,0 +1,41 @@
+import camion.*
+import cosas.*
+
+test "bumblebee transformado "{
+	bumblebee.transformadoEnAuto(true)
+	assert.equals(15,bumblebee.nivelPeligrosidad())
+	assert.equals(800,bumblebee.peso())
+}
+
+test " paquete de ladrillos"{
+	paqueteDeLadrillos.cantidadLadrillo(10)
+	assert.equals(20,paqueteDeLadrillos.peso())
+}
+
+test "arenaAGranel" {
+	assert.equals(1,arenaAGranel.nivelPeligrosidad())
+}
+
+test "bateriaAntiaerea"{
+	assert.equals(true,bateriaAntiaerea.misiles())
+	assert.equals(300,bateriaAntiaerea.peso())
+	assert.equals(100,bateriaAntiaerea.nivelPeligrosidad())
+}
+
+test "contenedor Portuario" {
+	contenedorPortuario.cosas([knightRider,bumblebee])
+	assert.equals([10,15 ], contenedorPortuario.nivelDeCosas())
+}
+
+test "reciduosRadiactivos"{
+	assert.equals(200,reciduosRadiactivos.nivelPeligrosidad())
+}
+
+test "embalajeDeSeguridad"{
+	embalajeDeSeguridad.cosaEnvuelta(knightRider)
+	assert.equals(10,embalajeDeSeguridad.nivelPeligrosidad())
+	assert.equals(500,embalajeDeSeguridad.peso())
+}
+
+
+

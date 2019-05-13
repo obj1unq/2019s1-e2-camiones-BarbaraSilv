@@ -1,0 +1,25 @@
+import camion.*
+import cosas.*
+
+describe "cargar camion" {
+
+	fixture {
+	camion.cargar(knightRider)
+	camion.cargar(bumblebee)
+	camion.cargar(paqueteDeLadrillos)
+	camion.cargar(bateriaAntiaerea)
+	camion.cargar(arenaAGranel)
+	camion.cargar(contenedorPortuario)
+	camion.cargar(embalajeDeSeguridad)
+	camion.cargar(reciduosRadiactivos)
+	
+	}
+	test "cargar camion"{
+	
+	assert.equals(true,bumblebee.transformadoEnAuto())
+	assert.equals(12,paqueteDeLadrillos.cantidadLadrillo())
+	assert.equals(true,bateriaAntiaerea.misiles())
+	assert.equals(15,reciduosRadiactivos.peso())
+	assert.equals(20,arenaAGranel.peso())
+	}
+}
