@@ -1,0 +1,51 @@
+import camion.*
+import cosas.*
+
+
+test "camion puede cargar y descargar"{
+	camion.cargar(knightRider)
+	camion.descargar(knightRider) 
+	assert.equals([],camion.cosas())
+} 
+
+test "peso de camion"{ 
+//el camion sin cosas 
+//probar otro test con cosas
+	assert.equals(1000,camion.pesoTotal())
+}
+
+test "el camion esta excedido "{
+assert.notThat(camion.excedidoDePeso())
+}
+
+test "objetos peligrosos del camion"{
+	assert.equals([],camion.objetosPeligrosos(10))
+}
+test "objetos mas peligrosos que _"{
+	assert.equals([],camion.objetosMasPeligrososQue(knightRider))
+}
+
+test "puede circular en ruta"{
+	camion.cargar(knightRider)
+	assert.notThat(camion.puedeCircularEnRuta(10)) 
+}
+test "tiene cosa con peso entre "{
+	assert.notThat(camion.tieneAlgoQuePesaEntre(10,20))
+}
+
+test "cosa mas pesada"{
+	camion.cargar(knightRider)
+	camion.cargar(bumblebee)
+	camion.cargar(paqueteDeLadrillos)
+	camion.cargar(bateriaAntiaerea)
+	assert.equals(bumblebee,camion.cosaMasPesada())
+}
+
+test "total bultos"{
+	camion.cargar(knightRider)
+	camion.cargar(bumblebee)
+	camion.cargar(bateriaAntiaerea)
+	assert.equals(4,camion.totalBultos())
+}
+
+
